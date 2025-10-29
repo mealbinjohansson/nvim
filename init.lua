@@ -1,6 +1,7 @@
 -- Globals
 vim.g.mapleader = " ";
-local neovim_config = "~/.config/nvim/init.lua";
+local neovim_config_path = "~/.config/nvim/init.lua";
+local tmux_config_path = "~/.config/tmux/tmux.conf";
 
 -- Options
 vim.o.number = true;
@@ -9,22 +10,24 @@ vim.o.wrap = false;
 vim.o.winborder = "rounded";
 vim.o.smartindent = true;
 vim.o.mouse = ""
+vim.o.ruler = false;
 
 -- Keymaps
 local map = vim.keymap.set
-map("n", "<leader>o", ":update<CR>:source<CR>");         -- Source current lua file
-map("n", "<leader>lf", vim.lsp.buf.format);              -- Format current buffer
-map("n", "<leader>e", ":Explore<CR>");                   -- Navigation
-map("n", "<C-9>", "<C-]>")                               -- Re-map tag key binding to work on nordic keyboard layout
-map("n", "<leader>nc", ":e " .. neovim_config .. "<CR>") -- Edit neovim config
-map("", "<up>", "<nop>", { noremap = true })             -- Disable arrow keys
-map("", "<down>", "<nop>", { noremap = true })           -- Disable arrow keys
-map("", "<left>", "<nop>", { noremap = true })           -- Disable arrow keys
-map("", "<right>", "<nop>", { noremap = true })          -- Disable arrow keys
-map("i", "<up>", "<nop>", { noremap = true })            -- Disable arrow keys
-map("i", "<down>", "<nop>", { noremap = true })          -- Disable arrow keys
-map("i", "<left>", "<nop>", { noremap = true })          -- Disable arrow keys
-map("i", "<right>", "<nop>", { noremap = true })         -- Disable arrow keys
+map("n", "<leader>o", ":update<CR>:source<CR>");              -- Source current lua file
+map("n", "<leader>lf", vim.lsp.buf.format);                   -- Format current buffer
+map("n", "<leader>e", ":Explore<CR>");                        -- Navigation
+map("n", "<C-9>", "<C-]>")                                    -- Re-map tag key binding to work on nordic keyboard layout
+map("n", "<leader>cn", ":e " .. neovim_config_path .. "<CR>") -- Edit neovim config
+map("n", "<leader>ct", ":e " .. tmux_config_path .. "<CR>")   -- Edit neovim config
+map("", "<up>", "<nop>", { noremap = true })                  -- Disable arrow keys
+map("", "<down>", "<nop>", { noremap = true })                -- Disable arrow keys
+map("", "<left>", "<nop>", { noremap = true })                -- Disable arrow keys
+map("", "<right>", "<nop>", { noremap = true })               -- Disable arrow keys
+map("i", "<up>", "<nop>", { noremap = true })                 -- Disable arrow keys
+map("i", "<down>", "<nop>", { noremap = true })               -- Disable arrow keys
+map("i", "<left>", "<nop>", { noremap = true })               -- Disable arrow keys
+map("i", "<right>", "<nop>", { noremap = true })              -- Disable arrow keys
 
 -- Packages
 vim.pack.add({
